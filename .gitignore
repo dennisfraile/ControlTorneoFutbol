@@ -1,0 +1,63 @@
+# Laravel 12 - Proyecto API
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Composer
+/vendor/
+/composer.lock
+
+# Laravel
+.env
+.env.*
+/storage/*.key
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/bootstrap/cache/*
+public/storage
+
+# IDEs y editores
+/.idea
+*.sublime-project
+*.sublime-workspace
+*.vscode
+*.code-workspace
+
+# Sistemas Operativos
+.DS_Store
+Thumbs.db
+
+# PHPUnit
+.phpunit.result.cache
+tests/.phpunit.result.cache
+
+# Laravel Telescope (si se usa)
+telescope/requests/*.json
+
+# Laravel Horizon (si se usa)
+horizon/*.json
+
+# Docker (si usas Docker)
+docker-compose.override.yml
+.docker/
+
+# Laravel Sail (si se usa)
+sail
+
+# Logs personalizados
+*.log
+
+# Archivos de debug o temporales
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# Archivos de base de datos locales
+*.sqlite
+*.sqlite3
+

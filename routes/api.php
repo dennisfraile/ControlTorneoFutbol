@@ -21,6 +21,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventoPartidoController;
 use App\Http\Controllers\Api\FcmTokenController;
 use App\Http\Controllers\Api\NotificationController;
+use App\Http\Controllers\Api\NotificationTemplateController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -155,4 +156,13 @@ Route::post('/notificaciones/enviar', [FCMController::class, 'enviarNotificacion
 
 Route::middleware('auth:sanctum')->post('/send-notification', [NotificationController::class, 'send']);
 
+Route::middleware('auth:sanctum')->post('/send-notification-by-role', [NotificationController::class, 'sendByRole']);
+
 Route::post('/usuario/fcm-token', [UserController::class, 'guardarFcmToken']);
+
+Route::middleware('auth:sanctum')->prefix('templates')->group(function () {
+    Route::get('/', [NotificationTemplateController::class, 'index']);
+    Route::post('/', [NotificationTemplateController::class, 'store']);
+    Route::post('/send/{id}', [NotificationTemplateController::class, 'sendFromTemplate']);
+    Route::get('/logs', [NotificationTemplateController::class,'logs']);
+});

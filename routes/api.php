@@ -158,7 +158,7 @@ Route::middleware('auth:sanctum')->post('/send-notification', [NotificationContr
 
 Route::middleware('auth:sanctum')->post('/send-notification-by-role', [NotificationController::class, 'sendByRole']);
 
-Route::post('/usuario/fcm-token', [UserController::class, 'guardarFcmToken']);
+Route::middleware('auth:sanctum')->post('/usuario/fcm-token', [UserController::class, 'guardarFcmToken']);
 
 Route::middleware('auth:sanctum')->prefix('templates')->group(function () {
     Route::get('/', [NotificationTemplateController::class, 'index']);
